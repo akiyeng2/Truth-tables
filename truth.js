@@ -27,7 +27,13 @@ function genvalues(num){
 	}
 	return array;
 }
-
+/**
+ * Generates a truth table in console
+ * 
+ * @param {String} input The string with the truth statement, e.g. "p and x"
+ * @param {Integer} num The number of variables
+ * @returns null
+ */
 function newtable(input,num){
 	//Tokenizes the input for parsing and replacing
 	input=tokenize(input,false);

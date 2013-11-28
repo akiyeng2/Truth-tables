@@ -1,5 +1,5 @@
 /**
- * @description Checks if something is numeric
+ * Checks if something is numeric
  * 
  * @param n item to check if numeric
  * @returns {Boolean} Returns if it is a number
@@ -57,7 +57,7 @@ function Stack(){
 	 * pushes an item to the stack
 	 * 
 	 * @private
-	 * @param {Token }item
+	 * @param {Token} item
 	 * @returns null
 	 */
 	this.push=function(item){
