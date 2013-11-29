@@ -4,7 +4,7 @@
  * @param {integer} num: The number of variables to generate an array for
  * @example
  * //returns [[1,1,0,0],[1,0,1,0]]
- * genvalues(2);
+ * genval	ues(2);
  * @returns {integer array} The values of the variables to iterate through
  */
 function genvalues(num){
@@ -30,7 +30,7 @@ function genvalues(num){
 /**
  * Generates a truth table in console
  *
- * @param {String} input The string with the truth statement, e.g. "p and x"
+ * @param {String} input The string with the truth statement, e.g. "p and q"
  * @param {Integer} num The number of variables
  * @returns {Boolean[]} The results of the truth table
  */
