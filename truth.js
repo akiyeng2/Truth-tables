@@ -1,11 +1,12 @@
+
 /** 
  * This generates a table which iterates through the values on a truth table
  * 
  * @param {integer} num: The number of variables to generate an array for
  * @example
  * //returns [[1,1,0,0],[1,0,1,0]]
- * genval	ues(2);
- * @returns {integer array} The values of the variables to iterate through
+ * genvalues(2);
+ * @returns {Integer[]} The values of the variables to iterate through
  */
 function genvalues(num){
 	var array=[];
@@ -37,7 +38,7 @@ function genvalues(num){
 
 function table(input, num){
 	var postfix=shunt(input);
-	vars={};
+	var vars={};
 	for(var i=112;i<112+num;i++){
 		vars[String.fromCharCode[i]]=1;
 	}
@@ -63,7 +64,7 @@ function table(input, num){
 
 			}
 		}
-		//Apply the shunting algorithm and evaluate it
+		//Apply the shunting algorithm, cast it to bool, and evaluate it
 		var result=!!RPN(newinput);
 
 		results.push(result);

@@ -27,7 +27,7 @@ function operator(name){
 	}else if(name=="equals" ||name=="implies"){
 		this.precedence=5;
 	}else if(name=="xor"||name=="nor"){
-		this.precedence=4;
+		this.precqedence=4;
 	}else if(name=="nand"){
 		this.precedence=3;
 	}else if(name=="or"){
