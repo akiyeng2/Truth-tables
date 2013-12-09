@@ -48,6 +48,8 @@ function check(element,event){
 	
 }
 function generate(btn){
+	$("#results").css("display","block");
+	$("#truthtable").html("");
 	btn.blur();
 	var expressions=document.getElementsByClassName("expression");
 	var truthTable=genvalues(document.getElementById("numvars").value);
@@ -64,6 +66,7 @@ function generate(btn){
 		
 	}
 	var htmltable=$("<table></table>");
+	htmltable.attr("class","table table-bordered");
 	var row=$("<tr></tr>");
 	for(var i=0;i<columns.length;i++){
 		var val=columns[i];
@@ -72,16 +75,16 @@ function generate(btn){
 		
 	}
 	htmltable.append(row);
-	htmltable.attr("border","1");
+
 	for(var i=0;i<Math.pow(2,document.getElementById("numvars").value);i++){
 		row=$("<tr></tr>");
 		for(var j=0;j<truthTable.length;j++){
 			var value=(truthTable[j][i])?"T":"F";
-			row.append($("<td></td>").html("\\("+value+"\\)"));
+			row.append($("<td></td>").html(value));
 		}
 		htmltable.append(row);
 	}
-	htmltable.appendTo(document.getElementById("stuff"));
+	htmltable.appendTo(document.getElementById("truthtable"));
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 	

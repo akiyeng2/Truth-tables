@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,7 +81,7 @@
 
     <!-- Wrap all page content here -->
     <div id="wrap">
-
+	
       <!-- Fixed navbar -->
       <div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
         <div class="container">
@@ -136,8 +137,7 @@
         <div class="panel panel-primary" id="stuff">
 			<div class="panel-heading">
 				<h4>Enter table contents</h4>
-
-			</div>      
+	</div>      	
 			<div class="panel-body">
 				<div class="input-group">
 					Number of variables: <input type="number" class="form-control" value="2" max="11" min="1" id="numvars" style="text-align:left;width:4em;"/>
@@ -162,6 +162,10 @@
 					
 			</div>  	
 
+        </div>
+        <div class="panel panel-primary" style="display:none;" id="results">
+        	<div class="panel-heading"><h4>Table Results</h4></div>
+        	<div class="panel-body" id="truthtable"></div>
         </div>
       </div>
     </div>
