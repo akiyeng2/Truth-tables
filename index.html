@@ -1,79 +1,192 @@
+
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Truth-tables : A truth table generator and quiz, built in PHP and Javascript" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+		});
+	</script>
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>Truth Tables</title>
 
-    <title>Truth-tables</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    /* Sticky footer styles
+		-------------------------------------------------- */
+		
+		html,
+		body {
+		  height: 100%;
+		  /* The html and body elements cannot have any padding or margin. */
+		}
+		
+		/* Wrapper for page content to push down footer */
+		#wrap {
+		  min-height: 100%;
+		  height: auto;
+		  /* Negative indent footer by its height */
+		  margin: 0 auto -60px;
+		  /* Pad bottom by footer height */
+		  padding: 0 0 60px;
+		}
+		
+		/* Set the fixed height of the footer here */
+		#footer {
+		  height: 60px;
+		  background-color: #f5f5f5;
+		}
+		
+		
+		/* Custom page CSS
+		-------------------------------------------------- */
+		/* Not required for template or sticky footer method. */
+		
+		#wrap > .container {
+		  padding: 60px 15px 0;
+		}
+		.container .credit {
+		  margin: 20px 0;
+		}
+		
+		#footer > .container {
+		  padding-left: 15px;
+		  padding-right: 15px;
+		}
+		
+		code {
+		  font-size: 80%;
+		}
+    </style>
+    
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/scrblnrd3/Truth-tables">View on GitHub</a>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+	
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Truth Tables</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="../about">About</a></li>
+              <li><a href="../contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unit Circle <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Truth Tables <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
 
-          <h1 id="project_title">Truth-tables</h1>
-          <h2 id="project_tagline">A truth table generator and quiz, built in PHP and Javascript</h2>
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h1>Truth Table Generator</h1>
+          <p class="lead">This is a truth table generator. First enter the number of variables you are going to use, between 1 and 11. These variables must be from p through z. If you are using two variables, make them p and q. If you're using three, they will be p, q, and r, and so on and so forth</p>
+          
+        </div>
+        <div class="panel panel-primary" id="stuff">
+			<div class="panel-heading">
+				<h4>Enter table contents</h4>
+	</div>      	
+			<div class="panel-body">
+				<div class="input-group">
+					Number of variables: <input type="number" class="form-control" value="2" max="11" min="1" id="numvars" style="text-align:left;width:4em;"/>
+				</div>
+				<br>
+				<div class="expression">
+					<br>
+					<div class="input-group">
+							
+						<span class="input-group-btn">
+						<button type="button" class="btn btn-default" onclick="add(this.parentNode.parentNode.parentNode);this.blur();"><span class="glyphicon glyphicon-plus"></span></button>
+						<button type="button" class="btn btn-default remove" disabled="true" onclick="this.parentNode.parentNode.parentNode.remove();"><span class="glyphicon glyphicon-minus"></span></button>
+							
+						</span>
+	
+						<input type="text" class="form-control" onkeydown="check(this.parentNode.parentNode,event);" placeholder="Enter expression"/>
+					</div>
+					
+				</div>
+				<br>
+				<input type="button" class="btn btn-primary" value="Generate!" onclick="generate(this)";/>
+					
+			</div>  	
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/scrblnrd3/Truth-tables/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/scrblnrd3/Truth-tables/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+        </div>
+        <div class="panel panel-primary" style="display:none;" id="results">
+        	<div class="panel-heading"><h4>Table Results</h4></div>
+        	<div class="panel-body" id="truthtable"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit">2013 &copy; Amalan Iyengar.</p>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Truth-tables maintained by <a href="https://github.com/scrblnrd3">scrblnrd3</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
 
-    
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="strmanip.js"></script>
+	<script type="text/javascript" src="stack.js"></script>
+	<script type='text/javascript' src="shunt.js"></script>
+	<script type="text/javascript" src="truth.js"></script>
+	<script type="text/javascript" src="ui.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+
